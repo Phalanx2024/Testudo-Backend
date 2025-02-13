@@ -1,9 +1,6 @@
 import argparse
 from patchright.sync_api import sync_playwright
 import time
-from check_ip_status import check_ip
-import random
-from twocaptcha import TwoCaptcha
 
 
 def verify_success(page):
