@@ -4,14 +4,9 @@ import os
 from patchright.sync_api import sync_playwright
 
 class BaseScraper(ABC):
-    def __init__(self, url, output_filename):
+    def __init__(self, url):
         self.url = url
         
-        # Output configuration
-        self.output_dir = os.path.join(os.path.expanduser('~'), 'Downloads', 'research_reports')
-        os.makedirs(self.output_dir, exist_ok=True)
-        self.output_filename = output_filename
-
     @abstractmethod
     def extract_reports(self, page):
         """

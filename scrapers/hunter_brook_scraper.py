@@ -1,21 +1,14 @@
 import logging
-import os
 from scrapers.base_scraper import BaseScraper
 from models import ResearchReport
-from utils.save_reports_to_csv import save_reports_to_csv
 
 class HunterBrookScraper(BaseScraper):
     def __init__(self):
         super().__init__(
-            url="https://hntrbrk.com/category/breaking-news/",
-            output_filename="hunter_brook_reports.csv"
+            url="https://hntrbrk.com/category/breaking-news/"
         )
     
-    def extract_reports(self, page):
-        # Wait for content to load
-        page.wait_for_timeout(5000)  # 5 seconds
-        
-        # Find all report articles
+    def extract_reports(self, page):        
         report_elements = page.query_selector_all('article.__card')
         
         reports = []
@@ -51,22 +44,12 @@ class HunterBrookScraper(BaseScraper):
                 
         return reports
 
-def main():
-    scraper = HunterBrookScraper()
-    reports = scraper.scrape()
-    if reports:
-        save_reports_to_csv(
-            reports, 
-            "hunter_brook_reports.csv", 
-            destination_folder=os.path.join(os.path.expanduser('~'), 'Downloads', 'research_reports', 'hunter_brook_reports')
-        )
-        
+if __name__ == "__main__":
+    reports = HunterBrookScraper().scrape()
+
     print("\nHunter Brook Reports:")
     for report in reports:
         print(f"\nSource: {report.source}")
         print(f"\nDate: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}")
-
-if __name__ == "__main__":
-    main() 
