@@ -1,0 +1,8 @@
+2025-02-12 23:27:03,935 - INFO - Scraping page 1: https://culperresearch.com/latest-research/page/1
+2025-02-12 23:27:04,130 - ERROR - Error fetching https://culperresearch.com/latest-research/page/1: 404 Client Error: Not Found for url: https://culperresearch.com/latest-research/page/1
+2025-02-12 23:42:54,181 - INFO - Starting Chrome driver...
+2025-02-12 23:42:55,176 - INFO - Fetching URL: https://culperresearch.com/latest-research
+2025-02-12 23:43:00,679 - INFO - Data saved to /Users/karimalsaka/Downloads/culper_reports/culper_reports.csv
+2025-02-12 23:52:24,776 - ERROR - Error during scraping: BrowserType.launch() got an unexpected keyword argument 'no_viewport'
+2025-02-12 23:52:59,427 - INFO - Accessing URL: https://culperresearch.com/latest-research
+2025-02-12 23:53:00,786 - INFO - Data successfully saved to /Users/karimalsaka/Downloads/scraped_data/culper_reports.csv
