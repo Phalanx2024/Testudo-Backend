@@ -1,6 +1,5 @@
 import logging
 from abc import ABC, abstractmethod
-import os
 from patchright.sync_api import sync_playwright
 
 class BaseScraper(ABC):
@@ -29,20 +28,16 @@ class BaseScraper(ABC):
                 )
                 page = context.new_page()
                 
-                # Set longer timeout and add additional wait options
-                page.set_default_timeout(60000)  # 60 seconds timeout
+                page.set_default_timeout(60000)
                 
                 logging.info(f"Fetching URL: {self.url}")
                 try:
-                    # Navigate with custom timeout and wait until network is idle
                     page.goto(self.url, wait_until='networkidle', timeout=60000)
                     
-                    # Additional wait for content to be visible
                     page.wait_for_load_state('domcontentloaded')
                     page.wait_for_load_state('networkidle')
                     
-                    # Wait a bit more for any dynamic content
-                    page.wait_for_timeout(5000)  # 5 second additional wait
+                    page.wait_for_timeout(5000)
                     
                     reports = self.extract_reports(page)
                     return reports

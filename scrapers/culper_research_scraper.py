@@ -1,6 +1,6 @@
 import logging
 from scrapers.base_scraper import BaseScraper
-from models import ResearchReport
+from models.ResearchReportModel import ResearchReport
 
 class CulperScraper(BaseScraper):
     def __init__(self):
@@ -38,6 +38,6 @@ if __name__ == "__main__":
     print("\nCulper Reports:")
     for report in reports:
         print(f"\nSource: {report.source}")
-        print(f"\nDate: {report.date}")
+        print(f"Date: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}")
