@@ -18,15 +18,17 @@ class CulperScraper(BaseScraper):
                 title = link_element.get_attribute('aria-label').replace('Download ', '')
                 link = link_element.get_attribute('href')
                 date = title.split(' - ')[0]
-                
+                target_company = title.split(' - ')[1].split(':')[0]
+                short_seller = 'Culper Research'
                 reports.append(ResearchReport(
                     source=self.url,
-                    date=date,
-                    title=title,
-                    link=link
+                    publication_date=date,
+                    report_title=title,
+                    link=link,
+                    target_company=target_company,
+                    short_seller=short_seller
                 ))
-                
-
+            
             except Exception as e:
                 logging.error(f"Error processing section: {str(e)}")
                 continue
@@ -41,3 +43,5 @@ if __name__ == "__main__":
         print(f"Date: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}")
+        print(f"Target Company: {report.target_company}")
+        print(f"Short Seller: {report.short_seller}")

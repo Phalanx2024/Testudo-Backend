@@ -29,12 +29,15 @@ class WhiteDiamondScraper(BaseScraper):
                 # Get content preview
                 content_element = element.query_selector('div.research-content')
                 content = content_element.inner_text().strip() if content_element else None
-                
+                target_company = ''
+                short_seller = 'White Diamond Research'
                 reports.append(ResearchReport(
                     source=self.url,
-                    date=date,
-                    title=title,
-                    link=link
+                    publication_date=date,
+                    report_title=title,
+                    link=link,
+                    target_company=target_company,
+                    short_seller=short_seller
                 ))
                 
             except Exception as e:
@@ -52,3 +55,5 @@ if __name__ == "__main__":
         print(f"Date: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}")
+        print(f"Target Company: {report.target_company}")
+        print(f"Short Seller: {report.short_seller}")

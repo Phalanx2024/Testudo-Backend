@@ -25,14 +25,18 @@ class NingiResearchScraper(BaseScraper):
                 link_element = cells[3].query_selector('a')
                 link = link_element.get_attribute('href') if link_element else None
                 
+                target_company = company
+                short_seller = 'Ningi Research'
                 if not all([company, date, link]):
                     continue
                 
                 reports.append(ResearchReport(
                     source=self.url,
-                    date=date,
-                    title=f"{company} ({ticker})",
-                    link=link
+                    publication_date=date,
+                    report_title=f"{company} ({ticker})",
+                    link=link,
+                    target_company=target_company,
+                    short_seller=short_seller
                 ))
                 
             except Exception as e:
@@ -50,3 +54,5 @@ if __name__ == "__main__":
         print(f"Date: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}") 
+        print(f"Target Company: {report.target_company}")
+        print(f"Short Seller: {report.short_seller}")

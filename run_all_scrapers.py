@@ -11,6 +11,15 @@ from scrapers.culper_research_scraper import CulperScraper
 from scrapers.scorpion_capital_scraper import ScorpionCapitalScraper
 from scrapers.ningi_research_scraper import NingiResearchScraper
 from scrapers.night_market_scraper import NightMarketScraper
+from scrapers.bleecker_street_research import BleeckerStreetResearchScraper
+from scrapers.blue_orca_capital import BlueOrcaCapitalScraper
+from scrapers.fuzzy_pandas_research import FuzzyPandaResearchScraper
+from scrapers.gmt_research import GMTResearchScraper
+from scrapers.hindenburg_research import HindenburgResearchScraper
+from scrapers.viceroy_research import ViceroyResearchScraper
+from scrapers.sprucepoint_management import SprucepointManagementScraper
+from scrapers.kerrisdale_capital import KerrisdaleScraper
+from scrapers.gotham_city_research import GothamCityResearchScraper
 
 # Configure logging
 logging.basicConfig(
@@ -22,33 +31,69 @@ logger = logging.getLogger(__name__)
 # Define scraper configurations
 SCRAPER_CONFIGS = [
     {
-        'name': 'White Diamond Research',
-        'class': WhiteDiamondScraper
+        'name': 'Kerrisdale Capital',
+        'class': KerrisdaleScraper
     },
+    # {
+    #     'name': 'Gotham City Research',
+    #     'class': GothamCityResearchScraper
+    # },
     {
-        'name': 'Hunter Brook Research',
-        'class': HunterBrookScraper
+        'name': 'Spruce Point Management',
+        'class': SprucepointManagementScraper
     },
-    {
-        'name': 'Logphase Research',
-        'class': LogPhaseScraper
-    },
-    {
-        'name': 'Culper Research',
-        'class': CulperScraper
-    },
-    {
-        'name': 'Scorpion Capital',
-        'class': ScorpionCapitalScraper
-    },
-    {
-        'name': 'Ningi Research',
-        'class': NingiResearchScraper
-    },
-    {
-        'name': 'Night Market Research',
-        'class': NightMarketScraper
-    }
+#     {
+#         'name': 'Viceroy Research',
+#         'class': ViceroyResearchScraper
+#     },
+# {
+#     'name': 'Hindenburg Research',
+#     'class': HindenburgResearchScraper
+# },
+#     {
+#         'name': 'GMT Research',
+#         'class': GMTResearchScraper
+#     }
+    # {
+    #     'name': 'Fuzzy Panda Research',
+    #     'class': FuzzyPandaResearchScraper
+    # },
+    # {
+    #     'name': 'Blue Orca Capital',
+    #     'class': BlueOrcaCapitalScraper
+    #  },
+    # {
+    #     'name': 'Bleecker Street Research',
+    #     'class': BleeckerStreetResearchScraper
+    #  }
+    # {
+    #     'name': 'White Diamond Research',
+    #     'class': WhiteDiamondScraper
+    #  }
+    # {
+    #     'name': 'HunterBrook Research',
+    #     'class': HunterBrookScraper
+    # },
+    # {
+    #     'name': 'Logphase Research',
+    #     'class': LogPhaseScraper
+    # },
+    # {
+    #     'name': 'Culper Research',
+    #     'class': CulperScraper
+    # },
+    # {
+    #     'name': 'Scorpion Capital',
+    #     'class': ScorpionCapitalScraper
+    # },
+    # {
+    #     'name': 'Ningi Research',
+    #     'class': NingiResearchScraper
+    # },
+    # {
+    #     'name': 'Night Market Research',
+    #     'class': NightMarketScraper
+    # }
 ]
 
 def run_scraper(config: Dict[str, Any]) -> List[Dict[str, str]]:
@@ -135,7 +180,7 @@ def main():
         if num_reports > 0:
             print("\nLatest reports:")
             for report in reports[:3]:  # Show latest 3 reports
-                print(f"- {getattr(report, 'date', 'No date')} | {getattr(report, 'title', 'No title')}")
+                print(f"- {getattr(report, 'publication_date', 'No date')} | {getattr(report, 'report_title', 'No title')}")
             print()
     
     print("-" * 50)

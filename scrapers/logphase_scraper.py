@@ -31,12 +31,15 @@ class LogPhaseScraper(BaseScraper):
                     link = f"{self.url}{link}"
                 
                 ticker = columns[3].inner_text().strip()
-                
+                target_company = ticker 
+                short_seller = 'LogPhase Research'
                 reports.append(ResearchReport(
                     source=self.url,
-                    date=date,
-                    title=title,
-                    link=link
+                    publication_date=date,
+                    report_title=title,
+                    link=link,
+                    target_company=target_company,
+                    short_seller=short_seller
                 ))
                 
             except Exception as e:
@@ -54,3 +57,5 @@ if __name__ == "__main__":
         print(f"Date: {report.date}")
         print(f"Title: {report.title}")
         print(f"Link: {report.link}")
+        print(f"Target Company: {report.target_company}")
+        print(f"Short Seller: {report.short_seller}")

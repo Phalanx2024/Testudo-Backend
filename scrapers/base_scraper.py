@@ -1,6 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
-from patchright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright
 
 class BaseScraper(ABC):
     def __init__(self, url):
@@ -19,6 +19,7 @@ class BaseScraper(ABC):
             logging.info("Starting Patchright...")
             with sync_playwright() as p:
                 browser = p.chromium.launch(
+                    executable_path="/Users/albertzhang/Library/Caches/ms-playwright/chromium_headless_shell-1155/chrome-mac/headless_shell",
                     headless=True,
                 )
                 context = browser.new_context(
