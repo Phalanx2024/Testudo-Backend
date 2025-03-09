@@ -16,34 +16,33 @@ class GothamCityResearchScraper(BaseScraper):
         reports = []
         
         try:
-            page.wait_for_selector('div.blog-posts')
-            articles = page.query_selector_all('article.post-summary')
+    
+            articles = page.query_selector_all('div.post-list-item-wrapper')
             
             for article in articles:
                 try:
                     # Extract title and link
-                    title_element = article.query_selector('h2.blog-post-title a')
+                    title_element = article.query_selector('h2')
                     title = title_element.text_content().strip()
-                    link = title_element.get_attribute('href')
-                    if not link.startswith('http'):
-                        link = f"{self.base_url}{link}"
+                    link = article.query_selector('a').get_attribute('href')
                     
                     # Extract date from URL or title if available
                     # Most Gotham City Research reports include the date in the title
-                    date_match = re.search(r'(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})', title)
-                    if date_match:
-                        date_str = f"{date_match.group(1)} {date_match.group(2)} {date_match.group(3)}"
-                        datetime_obj = datetime.datetime.strptime(date_str, '%d %B %Y')
-                    else:
-                        # Use current date if no date found
-                        datetime_obj = datetime.datetime.now()
+                    # date_match = re.search(r'(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})', title)
+                    # if date_match:
+                    #     date_str = f"{date_match.group(1)} {date_match.group(2)} {date_match.group(3)}"
+                    #     datetime_obj = datetime.datetime.strptime(date_str, '%d %B %Y')
+                    # else:
+                    #     # Use current date if no date found
+                    datetime_obj = datetime.datetime.now()
                     
+
                     # Extract target company from title
                     company = title.split(':')[0].strip() if ':' in title else title.split('–')[0].strip()
                     
                     report = ResearchReport(
                         source=self.base_url,
-                        publication_date=datetime_obj.date(),
+                        publication_date=datetime_obj.date(), 
                         report_title=title,
                         link=link,
                         target_company=company,

@@ -39,5 +39,5 @@ if __name__ == "__main__":
 
     logger.info(f"Updating database with {results}")
     update_database("short_reports", results)
-    # update_short_sellers( results)
-    # update_target_companies(results)
+    # update_short_sellers(results)
+    update_target_companies(results)
