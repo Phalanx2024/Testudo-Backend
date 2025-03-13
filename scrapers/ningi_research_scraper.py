@@ -1,6 +1,7 @@
 import logging
 from scrapers.base_scraper import BaseScraper
 from models.ResearchReportModel import ResearchReport
+import datetime
 
 class NingiResearchScraper(BaseScraper):
     def __init__(self):
@@ -21,7 +22,8 @@ class NingiResearchScraper(BaseScraper):
                 company = cells[0].inner_text().strip()
                 ticker = cells[1].inner_text().strip()
                 date = cells[2].inner_text().strip()
-                
+                datetime_obj = datetime.datetime.strptime(date, "%m/%d/%Y")
+                        
                 link_element = cells[3].query_selector('a')
                 link = link_element.get_attribute('href') if link_element else None
                 
@@ -32,7 +34,7 @@ class NingiResearchScraper(BaseScraper):
                 
                 reports.append(ResearchReport(
                     source=self.url,
-                    publication_date=date,
+                    publication_date=datetime_obj.date(),
                     report_title=f"{company} ({ticker})",
                     link=link,
                     target_company=target_company,

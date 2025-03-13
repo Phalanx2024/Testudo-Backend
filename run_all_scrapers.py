@@ -20,7 +20,9 @@ from scrapers.viceroy_research import ViceroyResearchScraper
 from scrapers.sprucepoint_management import SprucepointManagementScraper
 from scrapers.kerrisdale_capital import KerrisdaleScraper
 from scrapers.gotham_city_research import GothamCityResearchScraper
-
+from scrapers.snowcap_research import SnowcapResearchScraper
+from scrapers.bonitas_research import BonitasResearchScraper
+from scrapers.glasshouse_research import GlasshouseResearchScraper
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -30,70 +32,82 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-    {
-        'name': 'Kerrisdale Capital',
-        'class': KerrisdaleScraper
-    },
-    {
-        'name': 'Gotham City Research',
-        'class': GothamCityResearchScraper
-    },
-    {
-        'name': 'Spruce Point Management',
-        'class': SprucepointManagementScraper
-    },
-    {
-        'name': 'Viceroy Research',
-        'class': ViceroyResearchScraper
-    },
-    {
-    'name': 'Hindenburg Research',
-    'class': HindenburgResearchScraper
-    },
-    {
-        'name': 'GMT Research',
-        'class': GMTResearchScraper
-    },
-    {
-        'name': 'Fuzzy Panda Research',
-        'class': FuzzyPandaResearchScraper
-    },
-    {
-        'name': 'Blue Orca Capital',
-        'class': BlueOrcaCapitalScraper
-     },
-    {
-        'name': 'Bleecker Street Research',
-        'class': BleeckerStreetResearchScraper
-     },
-    {
-        'name': 'White Diamond Research',
-        'class': WhiteDiamondScraper
-     },
-    {
-        'name': 'HunterBrook Research',
-        'class': HunterBrookScraper
-    },
-    {
-        'name': 'Logphase Research',
-        'class': LogPhaseScraper
-    },
-    {
-        'name': 'Culper Research',
-        'class': CulperScraper
-    },
-    {
-        'name': 'Scorpion Capital',
-        'class': ScorpionCapitalScraper
-    },
-    {
-        'name': 'Ningi Research',
-        'class': NingiResearchScraper
-    },
-    {
-        'name': 'Night Market Research',
-        'class': NightMarketScraper
-    }
+{
+    'name': 'Glasshouse Research',
+    'class': GlasshouseResearchScraper
+},
+    # {
+    #     'name': 'Bonitas Research',
+    #     'class': BonitasResearchScraper
+    # },
+    # {
+    #     'name': 'Snowcap Research',
+    #     'class': SnowcapResearchScraper
+    # },
+    # {
+    #     'name': 'Kerrisdale Capital',
+    #     'class': KerrisdaleScraper
+    # },
+    # {
+    #     'name': 'Gotham City Research',
+    #     'class': GothamCityResearchScraper
+    # },
+    # {
+    #     'name': 'Spruce Point Management',
+    #     'class': SprucepointManagementScraper
+    # },
+    # {
+    #     'name': 'Viceroy Research',
+    #     'class': ViceroyResearchScraper
+    # },
+    # {
+    # 'name': 'Hindenburg Research',
+    # 'class': HindenburgResearchScraper
+    # },
+    # {
+    #     'name': 'GMT Research',
+    #     'class': GMTResearchScraper
+    # },
+    # {
+    #     'name': 'Fuzzy Panda Research',
+    #     'class': FuzzyPandaResearchScraper
+    # },
+    # {
+    #     'name': 'Blue Orca Capital',
+    #     'class': BlueOrcaCapitalScraper
+    #  },
+    # {
+    #     'name': 'Bleecker Street Research',
+    #     'class': BleeckerStreetResearchScraper
+    #  },
+    # {
+    #     'name': 'White Diamond Research',
+    #     'class': WhiteDiamondScraper
+    #  },
+    # {
+    #     'name': 'HunterBrook Research',
+    #     'class': HunterBrookScraper
+    # },
+    # {
+    #     'name': 'Logphase Research',
+    #     'class': LogPhaseScraper
+    # },
+    # {
+    #     'name': 'Culper Research',
+    #     'class': CulperScraper
+    # },
+    # {
+    #     'name': 'Scorpion Capital',
+    #     'class': ScorpionCapitalScraper
+    # },
+    # {
+    #     'name': 'Ningi Research',
+    #     'class': NingiResearchScraper
+    # },
+    # {
+    #     'name': 'Night Market Research',
+    #     'class': NightMarketScraper
+    # }
 ]
 
 def run_scraper(config: Dict[str, Any]) -> List[Dict[str, str]]:

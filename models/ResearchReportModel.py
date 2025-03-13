@@ -9,7 +9,7 @@ class ResearchReport:
     link: str
     target_company: str
     short_seller: str
-    
+    ticker: str = ''
     def to_dict(self) -> dict:
         return {
             # 'source': self.source,
@@ -17,7 +17,8 @@ class ResearchReport:
             'report_title': self.report_title,
             'link': self.link,
             'target_company': self.target_company,
-            'short_seller': self.short_seller
+            'short_seller': self.short_seller,
+            'ticker': self.ticker
         }
     
 #              INSERT INTO short_reports (publication_date, report_title, short_seller, last_update, link, target_company, ticker, sector)
