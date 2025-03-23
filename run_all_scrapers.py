@@ -23,6 +23,9 @@ from scrapers.gotham_city_research import GothamCityResearchScraper
 from scrapers.snowcap_research import SnowcapResearchScraper
 from scrapers.bonitas_research import BonitasResearchScraper
 from scrapers.glasshouse_research import GlasshouseResearchScraper
+from scrapers.capybara_research import CapybaraResearchScraper
+from scrapers.dirty_bubble_media import DirtyBubbleMediaScraper
+from scrapers.the_bear_cave import BearCaveScraper
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -32,82 +35,94 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-{
-    'name': 'Glasshouse Research',
-    'class': GlasshouseResearchScraper
-},
-    # {
-    #     'name': 'Bonitas Research',
-    #     'class': BonitasResearchScraper
-    # },
-    # {
-    #     'name': 'Snowcap Research',
-    #     'class': SnowcapResearchScraper
-    # },
-    # {
-    #     'name': 'Kerrisdale Capital',
-    #     'class': KerrisdaleScraper
-    # },
-    # {
-    #     'name': 'Gotham City Research',
-    #     'class': GothamCityResearchScraper
-    # },
-    # {
-    #     'name': 'Spruce Point Management',
-    #     'class': SprucepointManagementScraper
-    # },
-    # {
-    #     'name': 'Viceroy Research',
-    #     'class': ViceroyResearchScraper
-    # },
-    # {
-    # 'name': 'Hindenburg Research',
-    # 'class': HindenburgResearchScraper
-    # },
-    # {
-    #     'name': 'GMT Research',
-    #     'class': GMTResearchScraper
-    # },
-    # {
-    #     'name': 'Fuzzy Panda Research',
-    #     'class': FuzzyPandaResearchScraper
-    # },
-    # {
-    #     'name': 'Blue Orca Capital',
-    #     'class': BlueOrcaCapitalScraper
-    #  },
-    # {
-    #     'name': 'Bleecker Street Research',
-    #     'class': BleeckerStreetResearchScraper
-    #  },
-    # {
-    #     'name': 'White Diamond Research',
-    #     'class': WhiteDiamondScraper
-    #  },
-    # {
-    #     'name': 'HunterBrook Research',
-    #     'class': HunterBrookScraper
-    # },
-    # {
-    #     'name': 'Logphase Research',
-    #     'class': LogPhaseScraper
-    # },
-    # {
-    #     'name': 'Culper Research',
-    #     'class': CulperScraper
-    # },
-    # {
-    #     'name': 'Scorpion Capital',
-    #     'class': ScorpionCapitalScraper
-    # },
-    # {
-    #     'name': 'Ningi Research',
-    #     'class': NingiResearchScraper
-    # },
-    # {
-    #     'name': 'Night Market Research',
-    #     'class': NightMarketScraper
-    # }
+    {
+        'name': 'The Bear Cave',
+        'class': BearCaveScraper
+    },
+    {
+        'name': 'Dirty Bubble Media',
+        'class' : DirtyBubbleMediaScraper
+    },
+    {
+        'name': 'Capybara Research',
+        'class': CapybaraResearchScraper
+    },
+    {
+        'name': 'Glasshouse Research',
+        'class': GlasshouseResearchScraper
+    },
+    {
+        'name': 'Bonitas Research',
+        'class': BonitasResearchScraper
+    },
+    {
+        'name': 'Snowcap Research',
+        'class': SnowcapResearchScraper
+    },
+    {
+        'name': 'Kerrisdale Capital',
+        'class': KerrisdaleScraper
+    },
+    {
+        'name': 'Gotham City Research',
+        'class': GothamCityResearchScraper
+    },
+    {
+        'name': 'Spruce Point Management',
+        'class': SprucepointManagementScraper
+    },
+    {
+        'name': 'Viceroy Research',
+        'class': ViceroyResearchScraper
+    },
+    {
+    'name': 'Hindenburg Research',
+    'class': HindenburgResearchScraper
+    },
+    {
+        'name': 'GMT Research',
+        'class': GMTResearchScraper
+    },
+    {
+        'name': 'Fuzzy Panda Research',
+        'class': FuzzyPandaResearchScraper
+    },
+    {
+        'name': 'Blue Orca Capital',
+        'class': BlueOrcaCapitalScraper
+     },
+    {
+        'name': 'Bleecker Street Research',
+        'class': BleeckerStreetResearchScraper
+     },
+    {
+        'name': 'White Diamond Research',
+        'class': WhiteDiamondScraper
+     },
+    {
+        'name': 'HunterBrook Research',
+        'class': HunterBrookScraper
+    },
+    {
+        'name': 'Logphase Research',
+        'class': LogPhaseScraper
+    },
+    {
+        'name': 'Culper Research',
+        'class': CulperScraper
+    },
+    {
+        'name': 'Scorpion Capital',
+        'class': ScorpionCapitalScraper
+    },
+    {
+        'name': 'Ningi Research',
+        'class': NingiResearchScraper
+    },
+    {
+        'name': 'Night Market Research',
+        'class': NightMarketScraper
+    }
 ]
 
 def run_scraper(config: Dict[str, Any]) -> List[Dict[str, str]]:
