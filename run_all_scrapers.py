@@ -38,6 +38,9 @@ from scrapers.captains_log import CaptainsLogScraper
 from scrapers.disclosure_insight import DisclosureInsightScraper
 from scrapers.ragnarok_research import RagnarokResearchScraper
 from scrapers.unemon_research import UnemonScraper
+from scrapers.fiat_lux_partners import FiatLuxPartnersScraper
+from scrapers.anathema_research import AnathemaResearchScraper
+from scrapers.kryptonite_research import KryptoniteResearchScraper
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -48,9 +51,21 @@ logger = logging.getLogger(__name__)
 # Define scraper configurations
 SCRAPER_CONFIGS = [
     {
-        'name': 'Unemon Research',
-        'class': UnemonScraper
+        'name': 'Kryptonite Research',
+        'class': KryptoniteResearchScraper
     },
+# {
+#     'name': 'Anathema Research',
+#     'class': AnathemaResearchScraper
+# },
+    # {
+    #     'name': 'Fiat Lux Partners',
+    #     'class': FiatLuxPartnersScraper
+    # },
+    # {
+    #     'name': 'Unemon Research',
+    #     'class': UnemonScraper
+    # },
 # {
 #     'name': 'Ragnarok Research',
 #     'class': RagnarokResearchScraper
