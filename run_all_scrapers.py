@@ -44,10 +44,10 @@ logger = logging.getLogger(__name__)
     # },
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-    {
-        'name': 'Guasty Winds',
-        'class': GuastyWindsScraper
-    },
+    # {
+    #     'name': 'Guasty Winds',
+    #     'class': GuastyWindsScraper
+    # },
 
     # {
     #     'name': 'Sunshine Research',
@@ -137,10 +137,10 @@ SCRAPER_CONFIGS = [
     #     'name': 'Culper Research',
     #     'class': CulperScraper
     # },
-    # {
-    #     'name': 'Scorpion Capital',
-    #     'class': ScorpionCapitalScraper
-    # },
+    {
+        'name': 'Scorpion Capital',
+        'class': ScorpionCapitalScraper
+    },
     # {
     #     'name': 'Ningi Research',
     #     'class': NingiResearchScraper
