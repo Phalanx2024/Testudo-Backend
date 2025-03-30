@@ -29,21 +29,56 @@ from scrapers.the_bear_cave import BearCaveScraper
 from scrapers.the_friendly_bear import FriendlyBearScraper
 from scrapers.sunshine_research import SunshineResearchScraper
 from scrapers.prescience_point import PresciencePointScraper
-# from scrapers.quintessential_research import QuintessentialResearchScraper
+from scrapers.one_off_SSA.quintessential_capital_management import QuintessentialCapitalScraper
 from scrapers.guasty_winds import GuastyWindsScraper
-
+from scrapers.safkhet_capital import SafkhetCapitalScraper
+from scrapers.outliers_research import OutliersResearchScraper
+from scrapers.martin_shkreli import MartinShkreliScraper
+from scrapers.captains_log import CaptainsLogScraper
+from scrapers.disclosure_insight import DisclosureInsightScraper
+from scrapers.ragnarok_research import RagnarokResearchScraper
+from scrapers.unemon_research import UnemonScraper
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-    # {
-    #     'name': 'Quintessential Capital Management',
-    #     'class': QuintessentialResearchScraper
-    # },
+
 # Define scraper configurations
 SCRAPER_CONFIGS = [
+    {
+        'name': 'Unemon Research',
+        'class': UnemonScraper
+    },
+# {
+#     'name': 'Ragnarok Research',
+#     'class': RagnarokResearchScraper
+# },
+    # {
+    #     'name': 'Disclosure Insight',
+    #     'class': DisclosureInsightScraper
+    # },
+    # {
+    #     'name': 'Captains Log',
+    #     'class': CaptainsLogScraper
+    # },
+    # {
+    #     'name': 'Martin Shkreli',
+    #     'class': MartinShkreliScraper
+    # },
+    # {
+    #     'name': 'Outliers Research',
+    #     'class': OutliersResearchScraper
+    # },
+# {
+#     'name': 'Safkhet Capital',
+#     'class': SafkhetCapitalScraper
+# },
+# {
+#     'name': 'Quintessential Capital Management',
+#     'class': QuintessentialCapitalScraper
+# },
     # {
     #     'name': 'Guasty Winds',
     #     'class': GuastyWindsScraper
@@ -137,10 +172,10 @@ SCRAPER_CONFIGS = [
     #     'name': 'Culper Research',
     #     'class': CulperScraper
     # },
-    {
-        'name': 'Scorpion Capital',
-        'class': ScorpionCapitalScraper
-    },
+    # {
+    #     'name': 'Scorpion Capital',
+    #     'class': ScorpionCapitalScraper
+    # },
     # {
     #     'name': 'Ningi Research',
     #     'class': NingiResearchScraper
