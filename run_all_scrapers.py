@@ -54,151 +54,151 @@ SCRAPER_CONFIGS = [
         'name': 'Kryptonite Research',
         'class': KryptoniteResearchScraper
     },
-# {
-#     'name': 'Anathema Research',
-#     'class': AnathemaResearchScraper
-# },
-    # {
-    #     'name': 'Fiat Lux Partners',
-    #     'class': FiatLuxPartnersScraper
-    # },
-    # {
-    #     'name': 'Unemon Research',
-    #     'class': UnemonScraper
-    # },
-# {
-#     'name': 'Ragnarok Research',
-#     'class': RagnarokResearchScraper
-# },
-    # {
-    #     'name': 'Disclosure Insight',
-    #     'class': DisclosureInsightScraper
-    # },
-    # {
-    #     'name': 'Captains Log',
-    #     'class': CaptainsLogScraper
-    # },
-    # {
-    #     'name': 'Martin Shkreli',
-    #     'class': MartinShkreliScraper
-    # },
-    # {
-    #     'name': 'Outliers Research',
-    #     'class': OutliersResearchScraper
-    # },
-# {
-#     'name': 'Safkhet Capital',
-#     'class': SafkhetCapitalScraper
-# },
-# {
-#     'name': 'Quintessential Capital Management',
-#     'class': QuintessentialCapitalScraper
-# },
-    # {
-    #     'name': 'Guasty Winds',
-    #     'class': GuastyWindsScraper
-    # },
+{
+    'name': 'Anathema Research',
+    'class': AnathemaResearchScraper
+},
+    {
+        'name': 'Fiat Lux Partners',
+        'class': FiatLuxPartnersScraper
+    },
+    {
+        'name': 'Unemon Research',
+        'class': UnemonScraper
+    },
+{
+    'name': 'Ragnarok Research',
+    'class': RagnarokResearchScraper
+},
+    {
+        'name': 'Disclosure Insight',
+        'class': DisclosureInsightScraper
+    },
+    {
+        'name': 'Captains Log',
+        'class': CaptainsLogScraper
+    },
+    {
+        'name': 'Martin Shkreli',
+        'class': MartinShkreliScraper
+    },
+    {
+        'name': 'Outliers Research',
+        'class': OutliersResearchScraper
+    },
+{
+    'name': 'Safkhet Capital',
+    'class': SafkhetCapitalScraper
+},
+{
+    'name': 'Quintessential Capital Management',
+    'class': QuintessentialCapitalScraper
+},
+    {
+        'name': 'Guasty Winds',
+        'class': GuastyWindsScraper
+    },
 
-    # {
-    #     'name': 'Sunshine Research',
-    #     'class': SunshineResearchScraper
-    # },
-    # {
-    #     'name': 'Prescience Point',
-    #     'class': PresciencePointScraper
-    # },
-    # {
-    #     'name': 'The Friendly Bear',
-    #     'class': FriendlyBearScraper
-    # },
-    # {
-    #     'name': 'The Bear Cave',
-    #     'class': BearCaveScraper
-    # },
-    # {
-    #     'name': 'Dirty Bubble Media',
-    #     'class' : DirtyBubbleMediaScraper
-    # },
-    # {
-    #     'name': 'Capybara Research',
-    #     'class': CapybaraResearchScraper
-    # },
-    # {
-    #     'name': 'Glasshouse Research',
-    #     'class': GlasshouseResearchScraper
-    # },
-    # {
-    #     'name': 'Bonitas Research',
-    #     'class': BonitasResearchScraper
-    # },
-    # {
-    #     'name': 'Snowcap Research',
-    #     'class': SnowcapResearchScraper
-    # },
-    # {
-    #     'name': 'Kerrisdale Capital',
-    #     'class': KerrisdaleScraper
-    # },
+    {
+        'name': 'Sunshine Research',
+        'class': SunshineResearchScraper
+    },
+    {
+        'name': 'Prescience Point',
+        'class': PresciencePointScraper
+    },
+    {
+        'name': 'The Friendly Bear',
+        'class': FriendlyBearScraper
+    },
+    {
+        'name': 'The Bear Cave',
+        'class': BearCaveScraper
+    },
+    {
+        'name': 'Dirty Bubble Media',
+        'class' : DirtyBubbleMediaScraper
+    },
+    {
+        'name': 'Capybara Research',
+        'class': CapybaraResearchScraper
+    },
+    {
+        'name': 'Glasshouse Research',
+        'class': GlasshouseResearchScraper
+    },
+    {
+        'name': 'Bonitas Research',
+        'class': BonitasResearchScraper
+    },
+    {
+        'name': 'Snowcap Research',
+        'class': SnowcapResearchScraper
+    },
+    {
+        'name': 'Kerrisdale Capital',
+        'class': KerrisdaleScraper
+    },
     # {
     #     'name': 'Gotham City Research',
     #     'class': GothamCityResearchScraper
     # },
-    # {
-    #     'name': 'Spruce Point Management',
-    #     'class': SprucepointManagementScraper
-    # },
-    # {
-    #     'name': 'Viceroy Research',
-    #     'class': ViceroyResearchScraper
-    # },
-    # {
-    # 'name': 'Hindenburg Research',
-    # 'class': HindenburgResearchScraper
-    # },
-    # {
-    #     'name': 'GMT Research',
-    #     'class': GMTResearchScraper
-    # },
-    # {
-    #     'name': 'Fuzzy Panda Research',
-    #     'class': FuzzyPandaResearchScraper
-    # },
-    # {
-    #     'name': 'Blue Orca Capital',
-    #     'class': BlueOrcaCapitalScraper
-    #  },
-    # {
-    #     'name': 'Bleecker Street Research',
-    #     'class': BleeckerStreetResearchScraper
-    #  },
-    # {
-    #     'name': 'White Diamond Research',
-    #     'class': WhiteDiamondScraper
-    #  },
-    # {
-    #     'name': 'HunterBrook Research',
-    #     'class': HunterBrookScraper
-    # },
-    # {
-    #     'name': 'Logphase Research',
-    #     'class': LogPhaseScraper
-    # },
-    # {
-    #     'name': 'Culper Research',
-    #     'class': CulperScraper
-    # },
-    # {
-    #     'name': 'Scorpion Capital',
-    #     'class': ScorpionCapitalScraper
-    # },
-    # {
-    #     'name': 'Ningi Research',
-    #     'class': NingiResearchScraper
-    # },
-    # {
-    #     'name': 'Night Market Research',
-    #     'class': NightMarketScraper
-    # },
+    {
+        'name': 'Spruce Point Management',
+        'class': SprucepointManagementScraper
+    },
+    {
+        'name': 'Viceroy Research',
+        'class': ViceroyResearchScraper
+    },
+    {
+    'name': 'Hindenburg Research',
+    'class': HindenburgResearchScraper
+    },
+    {
+        'name': 'GMT Research',
+        'class': GMTResearchScraper
+    },
+    {
+        'name': 'Fuzzy Panda Research',
+        'class': FuzzyPandaResearchScraper
+    },
+    {
+        'name': 'Blue Orca Capital',
+        'class': BlueOrcaCapitalScraper
+     },
+    {
+        'name': 'Bleecker Street Research',
+        'class': BleeckerStreetResearchScraper
+     },
+    {
+        'name': 'White Diamond Research',
+        'class': WhiteDiamondScraper
+     },
+    {
+        'name': 'HunterBrook Research',
+        'class': HunterBrookScraper
+    },
+    {
+        'name': 'Logphase Research',
+        'class': LogPhaseScraper
+    },
+    {
+        'name': 'Culper Research',
+        'class': CulperScraper
+    },
+    {
+        'name': 'Scorpion Capital',
+        'class': ScorpionCapitalScraper
+    },
+    {
+        'name': 'Ningi Research',
+        'class': NingiResearchScraper
+    },
+    {
+        'name': 'Night Market Research',
+        'class': NightMarketScraper
+    },
 
 ]
 
