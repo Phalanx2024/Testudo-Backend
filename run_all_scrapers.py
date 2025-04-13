@@ -30,6 +30,7 @@ from scrapers.the_friendly_bear import FriendlyBearScraper
 from scrapers.sunshine_research import SunshineResearchScraper
 from scrapers.prescience_point import PresciencePointScraper
 from scrapers.one_off_SSA.quintessential_capital_management import QuintessentialCapitalScraper
+from scrapers.one_off_SSA.citron_research import CitronResearchcraper
 from scrapers.guasty_winds import GuastyWindsScraper
 from scrapers.safkhet_capital import SafkhetCapitalScraper
 from scrapers.outliers_research import OutliersResearchScraper
@@ -51,13 +52,17 @@ logger = logging.getLogger(__name__)
 # Define scraper configurations
 SCRAPER_CONFIGS = [
     {
+        'name': 'Citron Research',
+        'class': CitronResearchcraper
+    },
+    {
         'name': 'Kryptonite Research',
         'class': KryptoniteResearchScraper
     },
-{
-    'name': 'Anathema Research',
-    'class': AnathemaResearchScraper
-},
+    {
+        'name': 'Anathema Research',
+        'class': AnathemaResearchScraper
+    },
     {
         'name': 'Fiat Lux Partners',
         'class': FiatLuxPartnersScraper
@@ -66,10 +71,10 @@ SCRAPER_CONFIGS = [
         'name': 'Unemon Research',
         'class': UnemonScraper
     },
-{
-    'name': 'Ragnarok Research',
-    'class': RagnarokResearchScraper
-},
+    {
+        'name': 'Ragnarok Research',
+        'class': RagnarokResearchScraper
+    },
     {
         'name': 'Disclosure Insight',
         'class': DisclosureInsightScraper
@@ -89,10 +94,6 @@ SCRAPER_CONFIGS = [
 {
     'name': 'Safkhet Capital',
     'class': SafkhetCapitalScraper
-},
-{
-    'name': 'Quintessential Capital Management',
-    'class': QuintessentialCapitalScraper
 },
     {
         'name': 'Guasty Winds',

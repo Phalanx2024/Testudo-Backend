@@ -1,0 +1,9 @@
+psycopg2-binary
+boto3
+requests
+beautifulsoup4
+playwright
+pdfkit
+python-dotenv
+urllib3
+certifi
