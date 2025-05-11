@@ -24,15 +24,15 @@ class RagnarokResearchScraper(BaseScraper):
         reports = []
         
         try:
-            # Scroll to load all content
-            last_height = page.evaluate('document.documentElement.scrollHeight')
-            while True:
-                page.evaluate('window.scrollTo(0, document.documentElement.scrollHeight)')
-                page.wait_for_timeout(2000)
-                new_height = page.evaluate('document.documentElement.scrollHeight')
-                if new_height == last_height:
-                    break
-                last_height = new_height
+            # The below code is for when the page is not loading all the reports at once -- only to use if want to scrape all reports at once
+            # last_height = page.evaluate('document.documentElement.scrollHeight')
+            # while True:
+            #     page.evaluate('window.scrollTo(0, document.documentElement.scrollHeight)')
+            #     page.wait_for_timeout(2000)
+            #     new_height = page.evaluate('document.documentElement.scrollHeight')
+            #     if new_height == last_height:
+            #         break
+            #     last_height = new_height
             
             post_elements = page.query_selector_all('div.container-Qnseki')
             

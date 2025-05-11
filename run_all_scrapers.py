@@ -51,10 +51,10 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-    {
-        'name': 'Citron Research',
-        'class': CitronResearchcraper
-    },
+    # {
+    #     'name': 'Citron Research',
+    #     'class': CitronResearchcraper
+    # },
     {
         'name': 'Kryptonite Research',
         'class': KryptoniteResearchScraper

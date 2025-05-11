@@ -15,22 +15,22 @@ class DirtyBubbleMediaScraper(BaseScraper):
         reports = []
         
         try:
-
-            last_height = page.evaluate('document.documentElement.scrollHeight')
+            # The below code is for when the page is not loading all the reports at once -- only to use if want to scrape all reports at once
+            # last_height = page.evaluate('document.documentElement.scrollHeight')
             
-            while True:
-                # Scroll to bottom
-                page.evaluate('window.scrollTo(0, document.documentElement.scrollHeight)')
-                page.wait_for_timeout(2000)  # Wait for content to load
+            # while True:
+            #     # Scroll to bottom
+            #     page.evaluate('window.scrollTo(0, document.documentElement.scrollHeight)')
+            #     page.wait_for_timeout(2000)  # Wait for content to load
                 
-                # Calculate new scroll height
-                new_height = page.evaluate('document.documentElement.scrollHeight')
+            #     # Calculate new scroll height
+            #     new_height = page.evaluate('document.documentElement.scrollHeight')
                 
-                # Break if no more content is loaded
-                if new_height == last_height:
-                    break
+            #     # Break if no more content is loaded
+            #     if new_height == last_height:
+            #         break
                     
-                last_height = new_height
+            #     last_height = new_height
             
             # Find all post elements
             post_elements = page.query_selector_all('div[class="container-Qnseki"]')
