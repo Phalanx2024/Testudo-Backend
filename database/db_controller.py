@@ -83,6 +83,10 @@ class DatabaseController:
             return self.db.execute_query(query, list(conditions.values()), fetch=True)
         return self.db.execute_query(query, fetch=True)
 
+    def get_link_from_short_sellers(self, short_seller_name):
+        query = f"SELECT * FROM short_reports WHERE short_seller ='{short_seller_name}'"
+        return self.db.execute_query(query, fetch=True)
+
 # Example usage:
 if __name__ == "__main__":
 

@@ -38,7 +38,7 @@ class BaseScraper(ABC):
                     page.wait_for_load_state('domcontentloaded')
                     page.wait_for_load_state('networkidle')
                     
-                    page.wait_for_timeout(5000)
+                    # page.wait_for_timeout(5000)
                     
                     reports = self.extract_reports(page)
                     return reports

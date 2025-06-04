@@ -42,10 +42,15 @@ from scrapers.unemon_research import UnemonScraper
 from scrapers.fiat_lux_partners import FiatLuxPartnersScraper
 from scrapers.anathema_research import AnathemaResearchScraper
 from scrapers.kryptonite_research import KryptoniteResearchScraper
+from scrapers.one_off_SSA.fraud_research_institute import FraudResearchInstituteScraper
+from scrapers.one_off_SSA.ontake_research import OntakeResearchScraper
+from scrapers.one_off_SSA.triam_research import TriamResearchScraper
+from scrapers.one_off_SSA.mithra_forensic_research import MithraForensicResearchScraper
+from scrapers.one_off_SSA.bucephalus_research import BucephalusResearchScraper
+from scrapers.one_off_SSA.emerson_analytics import EmersonAnalyticsScraper
 from scrapers.j_capital import JCapitalScraper
 from scrapers.pig_farmer_capital import PigFarmerCapitalScraper
 from scrapers.bird_dog_research import BirdDogResearchScraper
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -55,6 +60,34 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
+{
+    'name': 'J Capital Research',
+    'class': JCapitalScraper
+}
+    # {
+    #     'name': 'Fraud Research Institute',
+    #     'class': FraudResearchInstituteScraper
+    # },
+    # {
+    #     'name': 'Ontake Research',
+    #     'class': OntakeResearchScraper
+    # },
+    # {
+    #     'name': 'Triam Research',
+    #     'class': TriamResearchScraper
+    # },
+    # {
+    #     'name': 'Mithra Forensic Research',
+    #     'class': MithraForensicResearchScraper
+    # },
+    # {
+    #     'name': 'Bucephalus Research',
+    #     'class': BucephalusResearchScraper
+    # },
+    # {
+    #     'name': 'Emerson Analytics',
+    #     'class': EmersonAnalyticsScraper
+    # },
     # {
     #     'name': 'Citron Research',
     #     'class': CitronResearchcraper
@@ -202,10 +235,6 @@ SCRAPER_CONFIGS = [
     {
         'name': 'Night Market Research',
         'class': NightMarketScraper
-    },
-    {
-        'name': 'J Capital',
-        'class': JCapitalScraper
     },
     {
         'name': 'Pig Farmer Capital',
