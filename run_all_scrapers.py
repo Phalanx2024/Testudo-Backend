@@ -42,6 +42,10 @@ from scrapers.unemon_research import UnemonScraper
 from scrapers.fiat_lux_partners import FiatLuxPartnersScraper
 from scrapers.anathema_research import AnathemaResearchScraper
 from scrapers.kryptonite_research import KryptoniteResearchScraper
+from scrapers.j_capital import JCapitalScraper
+from scrapers.pig_farmer_capital import PigFarmerCapitalScraper
+from scrapers.bird_dog_research import BirdDogResearchScraper
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -91,15 +95,14 @@ SCRAPER_CONFIGS = [
         'name': 'Outliers Research',
         'class': OutliersResearchScraper
     },
-{
-    'name': 'Safkhet Capital',
-    'class': SafkhetCapitalScraper
-},
+    {
+        'name': 'Safkhet Capital',
+        'class': SafkhetCapitalScraper
+    },
     {
         'name': 'Guasty Winds',
         'class': GuastyWindsScraper
     },
-
     {
         'name': 'Sunshine Research',
         'class': SunshineResearchScraper
@@ -140,10 +143,10 @@ SCRAPER_CONFIGS = [
         'name': 'Kerrisdale Capital',
         'class': KerrisdaleScraper
     },
-    # {
-    #     'name': 'Gotham City Research',
-    #     'class': GothamCityResearchScraper
-    # },
+    {
+        'name': 'Gotham City Research',
+        'class': GothamCityResearchScraper
+    },
     {
         'name': 'Spruce Point Management',
         'class': SprucepointManagementScraper
@@ -200,7 +203,18 @@ SCRAPER_CONFIGS = [
         'name': 'Night Market Research',
         'class': NightMarketScraper
     },
-
+    {
+        'name': 'J Capital',
+        'class': JCapitalScraper
+    },
+    {
+        'name': 'Pig Farmer Capital',
+        'class': PigFarmerCapitalScraper
+    },
+    {
+        'name': 'Bird Dog Research',
+        'class': BirdDogResearchScraper
+    }
 ]
 
 def run_scraper(config: Dict[str, Any]) -> List[Dict[str, str]]:
