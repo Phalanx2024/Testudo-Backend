@@ -125,7 +125,7 @@ class JCapitalScraper(BaseScraper):
                         source=self.url,
                         publication_date=date,
                         report_title=title,
-                        link=link,
+                        link=f'https://www.jcapitalresearch.com/{link}',
                         target_company=company_name,
                         short_seller=self.name
                     )

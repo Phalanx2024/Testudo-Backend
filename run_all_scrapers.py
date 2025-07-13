@@ -51,6 +51,9 @@ from scrapers.one_off_SSA.emerson_analytics import EmersonAnalyticsScraper
 from scrapers.j_capital import JCapitalScraper
 from scrapers.pig_farmer_capital import PigFarmerCapitalScraper
 from scrapers.bird_dog_research import BirdDogResearchScraper
+from scrapers.wolfpack_research import WolfpackResearchScraper
+from scrapers.sakura_research import SakuraResearchScraper
+from scrapers.bmf_reports import BMFReportsScraper
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -60,37 +63,21 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-{
-    'name': 'J Capital Research',
-    'class': JCapitalScraper
-}
+# {
+#     'name': 'BMF Reports',  
+#     'class': BMFReportsScraper
+# },
+#  {
+#     'name': 'Sakura Research',  
+#     'class': SakuraResearchScraper
+# },
+# {
+#     'name': 'BMF Research',
+#     'class': BMFResearchScraper
+# },
     # {
-    #     'name': 'Fraud Research Institute',
-    #     'class': FraudResearchInstituteScraper
-    # },
-    # {
-    #     'name': 'Ontake Research',
-    #     'class': OntakeResearchScraper
-    # },
-    # {
-    #     'name': 'Triam Research',
-    #     'class': TriamResearchScraper
-    # },
-    # {
-    #     'name': 'Mithra Forensic Research',
-    #     'class': MithraForensicResearchScraper
-    # },
-    # {
-    #     'name': 'Bucephalus Research',
-    #     'class': BucephalusResearchScraper
-    # },
-    # {
-    #     'name': 'Emerson Analytics',
-    #     'class': EmersonAnalyticsScraper
-    # },
-    # {
-    #     'name': 'Citron Research',
-    #     'class': CitronResearchcraper
+    #     'name': 'Wolfpack Research',
+    #     'class': WolfpackResearchScraper
     # },
     {
         'name': 'Kryptonite Research',

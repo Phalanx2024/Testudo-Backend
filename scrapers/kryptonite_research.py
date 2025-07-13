@@ -49,12 +49,12 @@ class KryptoniteResearchScraper(BaseScraper):
                     if ":" in title:
                         company_parts = title.split(":")[0].strip()
                         company_name = company_parts
-                    
+                    link = entry.query_selector('a').get_attribute('href')
                     report = ResearchReport(
                         source=self.url,
                         publication_date=datetime_obj.date(),
                         report_title=title,
-                        link=self.url,  # Using base URL since individual report links aren't visible
+                        link=link,  # Using base URL since individual report links aren't visible
                         target_company=company_name,
                         short_seller=self.name,
                         ticker=ticker

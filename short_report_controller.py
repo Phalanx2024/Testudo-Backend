@@ -25,14 +25,7 @@ def test_s3_connection():
                 report_name = report['report_name']
                 report_link = report['report_link']
                 store_research_content(report_link, bucket_name, s3_client, short_seller, report_name)
-        
-        # # Test storing PDF content
-        # pdf_url = "https://muddywatersresearch.com/wp-content/uploads/2011/04/DGW_MW_040411.pdf"
-        # store_research_content(pdf_url, bucket_name, s3_client)
-        
-        # # Test storing HTML content
-        # html_url = "https://muddywatersresearch.com/research/dgw/initiating-coverage-dgw/"
-        # store_research_content(html_url, bucket_name, s3_client)
+ 
         print("Testing S3 Connection...")
         
         # Test 1: List buckets
@@ -109,6 +102,25 @@ if __name__ == "__main__":
     
     test_s3_connection()
 
+
+# if __name__ == "__main__":
+#     # Test the scraper
+#     test_url = "https://ningiresearch.com/2025/03/26/vita-coco-nasdaq-coco-structural-issues-amid-stalling-sales-and-costco-contract-loss/"
+#     short_report_list = NingiResearchPDFScraper._get_short_report()
+#     downloadeable_links = []
+#     for report in short_report_list:
+#         link = NingiResearchPDFScraper(report['report_link'])
+#         downloadeable_links = link
+        
+#     # Use the scrape method from BaseScraper
+#     result = scraper.get_pdf_link(scraper.page)
+#     if result:
+#         print("\nPDF Scraping Results:")
+#         print(f"Title: {result['title']}")
+#         print(f"Date: {result['date']}")
+#         print(f"Company: {result['company']}")
+#         print(f"Ticker: {result['ticker']}")
+#         print(f"PDF URL: {result['pdf_url']}")
 
 # if __name__ == "__main__":
 #     test_url = "https://ningiresearch.com/2025/03/26/vita-coco-nasdaq-coco-structural-issues-amid-stalling-sales-and-costco-contract-loss/"

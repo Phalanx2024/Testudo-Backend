@@ -33,7 +33,7 @@ class BaseScraper(ABC):
                 
                 logging.info(f"Fetching URL: {self.url}")
                 try:
-                    page.goto(self.url, wait_until='networkidle', timeout=60000)
+                    page.goto(self.url, wait_until='networkidle', timeout=3000)
                     
                     page.wait_for_load_state('domcontentloaded')
                     page.wait_for_load_state('networkidle')

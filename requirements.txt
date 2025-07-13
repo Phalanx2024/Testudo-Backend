@@ -7,3 +7,23 @@ pdfkit
 python-dotenv
 urllib3
 certifi
+
+# Data Analysis and ML Libraries
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.0.0
+wordcloud>=1.8.0
+
+# Machine Learning
+scikit-learn>=1.1.0
+nltk>=3.7
+spacy>=3.4.0
+textblob>=0.17.0
+transformers>=4.20.0
+torch>=1.12.0
+
+# Additional NLP
+textstat>=0.7.0
+py-readability-metrics>=1.4.0
