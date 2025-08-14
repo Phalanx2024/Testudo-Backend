@@ -73,7 +73,7 @@ SCRAPER_CONFIGS = [
 # },
 # {
 #     'name': 'BMF Research',
-#     'class': BMFResearchScraper
+#     'class': BMFReportsScraper
 # },
     # {
     #     'name': 'Wolfpack Research',
