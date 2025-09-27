@@ -5,6 +5,7 @@ from typing import List, Dict, Optional
 import json
 from dotenv import load_dotenv
 import os
+from urllib.parse import urlparse, parse_qs
 
 load_dotenv()
 
@@ -12,6 +13,7 @@ class ResearchReportDataLoader:
     """Data loader for research reports from database"""
     
     def __init__(self):
+        # Default config from discrete env vars
         self.db_config = {
             'host': os.getenv('DB_HOST', 'localhost'),
             'database': os.getenv('DB_NAME', 'testudo'),
@@ -19,6 +21,8 @@ class ResearchReportDataLoader:
             'password': os.getenv('DB_PASSWORD', ''),
             'port': os.getenv('DB_PORT', '5432')
         }
+
+        # Keep original behavior: only use discrete env vars
     
     def get_connection(self):
         """Get database connection"""

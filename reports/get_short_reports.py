@@ -2,12 +2,13 @@ import boto3
 import os
 from botocore.exceptions import ClientError
 import logging
-from dotenv import load_dotenv
 from datetime import datetime
 import mimetypes
 from playwright.sync_api import sync_playwright
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
 def store_research_content(url, bucket_name, s3_client, short_seller_name, report_name):
     try:
         with sync_playwright() as p:

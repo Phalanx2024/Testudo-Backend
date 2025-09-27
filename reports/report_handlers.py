@@ -30,9 +30,9 @@ _SHORT_SELLERS = [
 # "HunterBrook Research"
 # "Prescience Point",
 # "J Capital Research"
-# "Wolfpack Research"
-"BMF Reports",
-"Sakura Research"
+ "Wolfpack Research"
+# "BMF Reports",
+# "Sakura Research"
 ]
 
 _SHORT_SELLERS_PDF_SCRAPPERS = [

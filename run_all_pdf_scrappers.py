@@ -35,10 +35,10 @@ SCRAPER_CONFIGS = [
     #     'name': 'Viceroy Research',
     #     'class': ViceroyResearchPDFScraper
     # },
-    {
-        'name': 'Spruce Point Management',
-        'class': SprucePointManagementPDFScraper
-    },
+    # {
+    #     'name': 'Spruce Point Management',
+    #     'class': SprucePointManagementPDFScraper
+    # },
     # {
     #     'name': 'Bonitas Research',
     #     'class': BonitasResearchPDFScraper

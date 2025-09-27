@@ -63,22 +63,22 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-# {
-#     'name': 'BMF Reports',  
-#     'class': BMFReportsScraper
-# },
-#  {
-#     'name': 'Sakura Research',  
-#     'class': SakuraResearchScraper
-# },
-# {
-#     'name': 'BMF Research',
-#     'class': BMFReportsScraper
-# },
-    # {
-    #     'name': 'Wolfpack Research',
-    #     'class': WolfpackResearchScraper
-    # },
+{
+    'name': 'BMF Reports',  
+    'class': BMFReportsScraper
+},
+ {
+    'name': 'Sakura Research',  
+    'class': SakuraResearchScraper
+},
+{
+    'name': 'BMF Research',
+    'class': BMFReportsScraper
+},
+    {
+        'name': 'Wolfpack Research',
+        'class': WolfpackResearchScraper
+    },
     {
         'name': 'Kryptonite Research',
         'class': KryptoniteResearchScraper
@@ -163,10 +163,10 @@ SCRAPER_CONFIGS = [
         'name': 'Kerrisdale Capital',
         'class': KerrisdaleScraper
     },
-    {
-        'name': 'Gotham City Research',
-        'class': GothamCityResearchScraper
-    },
+    # {
+    #     'name': 'Gotham City Research',
+    #     'class': GothamCityResearchScraper
+    # },
     {
         'name': 'Spruce Point Management',
         'class': SprucepointManagementScraper

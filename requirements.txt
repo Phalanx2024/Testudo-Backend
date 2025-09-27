@@ -7,6 +7,7 @@ pdfkit
 python-dotenv
 urllib3
 certifi
+openpyxl
 
 # Data Analysis and ML Libraries
 pandas>=1.5.0
