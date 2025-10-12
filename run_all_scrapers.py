@@ -63,174 +63,174 @@ logger = logging.getLogger(__name__)
 
 # Define scraper configurations
 SCRAPER_CONFIGS = [
-{
-    'name': 'BMF Reports',  
-    'class': BMFReportsScraper
-},
- {
-    'name': 'Sakura Research',  
-    'class': SakuraResearchScraper
-},
-{
-    'name': 'BMF Research',
-    'class': BMFReportsScraper
-},
-    {
-        'name': 'Wolfpack Research',
-        'class': WolfpackResearchScraper
-    },
-    {
-        'name': 'Kryptonite Research',
-        'class': KryptoniteResearchScraper
-    },
-    {
-        'name': 'Anathema Research',
-        'class': AnathemaResearchScraper
-    },
-    {
-        'name': 'Fiat Lux Partners',
-        'class': FiatLuxPartnersScraper
-    },
-    {
-        'name': 'Unemon Research',
-        'class': UnemonScraper
-    },
-    {
-        'name': 'Ragnarok Research',
-        'class': RagnarokResearchScraper
-    },
-    {
-        'name': 'Disclosure Insight',
-        'class': DisclosureInsightScraper
-    },
-    {
-        'name': 'Captains Log',
-        'class': CaptainsLogScraper
-    },
-    {
-        'name': 'Martin Shkreli',
-        'class': MartinShkreliScraper
-    },
-    {
-        'name': 'Outliers Research',
-        'class': OutliersResearchScraper
-    },
-    {
-        'name': 'Safkhet Capital',
-        'class': SafkhetCapitalScraper
-    },
-    {
-        'name': 'Guasty Winds',
-        'class': GuastyWindsScraper
-    },
-    {
-        'name': 'Sunshine Research',
-        'class': SunshineResearchScraper
-    },
-    {
-        'name': 'Prescience Point',
-        'class': PresciencePointScraper
-    },
-    {
-        'name': 'The Friendly Bear',
-        'class': FriendlyBearScraper
-    },
-    {
-        'name': 'The Bear Cave',
-        'class': BearCaveScraper
-    },
-    {
-        'name': 'Dirty Bubble Media',
-        'class' : DirtyBubbleMediaScraper
-    },
-    {
-        'name': 'Capybara Research',
-        'class': CapybaraResearchScraper
-    },
-    {
-        'name': 'Glasshouse Research',
-        'class': GlasshouseResearchScraper
-    },
-    {
-        'name': 'Bonitas Research',
-        'class': BonitasResearchScraper
-    },
-    {
-        'name': 'Snowcap Research',
-        'class': SnowcapResearchScraper
-    },
-    {
-        'name': 'Kerrisdale Capital',
-        'class': KerrisdaleScraper
-    },
+# {
+#     'name': 'BMF Reports',  
+#     'class': BMFReportsScraper
+# },
+#  {
+#     'name': 'Sakura Research',  
+#     'class': SakuraResearchScraper
+# },
+# {
+#     'name': 'BMF Research',
+#     'class': BMFReportsScraper
+# },
+    # {
+    #     'name': 'Wolfpack Research',
+    #     'class': WolfpackResearchScraper
+    # },
+    # {
+    #     'name': 'Kryptonite Research',
+    #     'class': KryptoniteResearchScraper
+    # },
+    # {
+    #     'name': 'Anathema Research',
+    #     'class': AnathemaResearchScraper
+    # },
+    # {
+    #     'name': 'Fiat Lux Partners',
+    #     'class': FiatLuxPartnersScraper
+    # },
+    # {
+    #     'name': 'Unemon Research',
+    #     'class': UnemonScraper
+    # },
+    # {
+    #     'name': 'Ragnarok Research',
+    #     'class': RagnarokResearchScraper
+    # },
+    # {
+    #     'name': 'Disclosure Insight',
+    #     'class': DisclosureInsightScraper
+    # },
+    # {
+    #     'name': 'Captains Log',
+    #     'class': CaptainsLogScraper
+    # },
+    # {
+    #     'name': 'Martin Shkreli',
+    #     'class': MartinShkreliScraper
+    # },
+    # {
+    #     'name': 'Outliers Research',
+    #     'class': OutliersResearchScraper
+    # },
+    # {
+    #     'name': 'Safkhet Capital',
+    #     'class': SafkhetCapitalScraper
+    # },
+    # {
+    #     'name': 'Guasty Winds',
+    #     'class': GuastyWindsScraper
+    # },
+    # {
+    #     'name': 'Sunshine Research',
+    #     'class': SunshineResearchScraper
+    # },
+    # {
+    #     'name': 'Prescience Point',
+    #     'class': PresciencePointScraper
+    # },
+    # {
+    #     'name': 'The Friendly Bear',
+    #     'class': FriendlyBearScraper
+    # },
+    # {
+    #     'name': 'The Bear Cave',
+    #     'class': BearCaveScraper
+    # },
+    # {
+    #     'name': 'Dirty Bubble Media',
+    #     'class' : DirtyBubbleMediaScraper
+    # },
+    # {
+    #     'name': 'Capybara Research',
+    #     'class': CapybaraResearchScraper
+    # },
+    # {
+    #     'name': 'Glasshouse Research',
+    #     'class': GlasshouseResearchScraper
+    # },
+    # {
+    #     'name': 'Bonitas Research',
+    #     'class': BonitasResearchScraper
+    # },
+    # {
+    #     'name': 'Snowcap Research',
+    #     'class': SnowcapResearchScraper
+    # },
+    # {
+    #     'name': 'Kerrisdale Capital',
+    #     'class': KerrisdaleScraper
+    # },
     # {
     #     'name': 'Gotham City Research',
     #     'class': GothamCityResearchScraper
     # },
-    {
-        'name': 'Spruce Point Management',
-        'class': SprucepointManagementScraper
-    },
-    {
-        'name': 'Viceroy Research',
-        'class': ViceroyResearchScraper
-    },
-    {
-    'name': 'Hindenburg Research',
-    'class': HindenburgResearchScraper
-    },
-    {
-        'name': 'GMT Research',
-        'class': GMTResearchScraper
-    },
-    {
-        'name': 'Fuzzy Panda Research',
-        'class': FuzzyPandaResearchScraper
-    },
-    {
-        'name': 'Blue Orca Capital',
-        'class': BlueOrcaCapitalScraper
-     },
-    {
-        'name': 'Bleecker Street Research',
-        'class': BleeckerStreetResearchScraper
-     },
-    {
-        'name': 'White Diamond Research',
-        'class': WhiteDiamondScraper
-     },
+    # {
+    #     'name': 'Spruce Point Management',
+    #     'class': SprucepointManagementScraper
+    # },
+    # {
+    #     'name': 'Viceroy Research',
+    #     'class': ViceroyResearchScraper
+    # },
+    # {
+    # 'name': 'Hindenburg Research',
+    # 'class': HindenburgResearchScraper
+    # },
+    # {
+    #     'name': 'GMT Research',
+    #     'class': GMTResearchScraper
+    # },
+    # {
+    #     'name': 'Fuzzy Panda Research',
+    #     'class': FuzzyPandaResearchScraper
+    # },
+    # {
+    #     'name': 'Blue Orca Capital',
+    #     'class': BlueOrcaCapitalScraper
+    #  },
+    # {
+    #     'name': 'Bleecker Street Research',
+    #     'class': BleeckerStreetResearchScraper
+    #  },
+    # {
+    #     'name': 'White Diamond Research',
+    #     'class': WhiteDiamondScraper
+    #  },
     {
         'name': 'HunterBrook Research',
         'class': HunterBrookScraper
     },
-    {
-        'name': 'Logphase Research',
-        'class': LogPhaseScraper
-    },
-    {
-        'name': 'Culper Research',
-        'class': CulperScraper
-    },
-    {
-        'name': 'Scorpion Capital',
-        'class': ScorpionCapitalScraper
-    },
-    {
-        'name': 'Ningi Research',
-        'class': NingiResearchScraper
-    },
-    {
-        'name': 'Night Market Research',
-        'class': NightMarketScraper
-    },
-    {
-        'name': 'Pig Farmer Capital',
-        'class': PigFarmerCapitalScraper
-    },
-    {
-        'name': 'Bird Dog Research',
-        'class': BirdDogResearchScraper
-    }
+    # {
+    #     'name': 'Logphase Research',
+    #     'class': LogPhaseScraper
+    # },
+    # {
+    #     'name': 'Culper Research',
+    #     'class': CulperScraper
+    # },
+    # {
+    #     'name': 'Scorpion Capital',
+    #     'class': ScorpionCapitalScraper
+    # },
+    # {
+    #     'name': 'Ningi Research',
+    #     'class': NingiResearchScraper
+    # },
+    # {
+    #     'name': 'Night Market Research',
+    #     'class': NightMarketScraper
+    # },
+    # {
+    #     'name': 'Pig Farmer Capital',
+    #     'class': PigFarmerCapitalScraper
+    # },
+    # {
+    #     'name': 'Bird Dog Research',
+    #     'class': BirdDogResearchScraper
+    # }
 ]
 
 def run_scraper(config: Dict[str, Any]) -> List[Dict[str, str]]:
@@ -312,7 +312,7 @@ def main():
         num_reports = len(reports)
         total_reports += num_reports
         print(f"{name}: {num_reports} reports")
-        
+         
         # Print report details
         if num_reports > 0:
             print("\nLatest reports:")
