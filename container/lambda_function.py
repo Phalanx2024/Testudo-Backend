@@ -1,7 +1,18 @@
 # lambda_function.py
 import asyncio
 import boto3
+import json
+import logging
+import time
+from run_scrapers import run_all_scrapers
 from playwright.async_api import async_playwright
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 async def scroll_to_bottom(page):
     try:
@@ -14,13 +25,13 @@ async def scroll_to_bottom(page):
                 break
             previous_height = current_height
     except Exception as e:
-        print(f"Error during scrolling: {e}")
+        logger.error(f"Error during scrolling: {e}")
         raise
 
 async def download_page_content(url):
     async with async_playwright() as p:
         # Launch the browser with all necessary parameters
-        print("Launching browser...")
+        logger.info("Launching browser...")
         browser = await p.chromium.launch(
             headless=True,
             args=[
@@ -78,66 +89,119 @@ async def download_page_content(url):
         await page.set_content("<meta http-equiv='X-Content-Type-Options' content='nosniff'>")
 
         # Navigate to URL
-        print(f"Navigating to URL: {url}")
+        logger.info(f"Navigating to URL: {url}")
         try:
             await page.goto(url, timeout=60000)
             try:
                 await page.wait_for_load_state('networkidle', timeout=60000)
             except Exception as e:
-                print(f"Network idle state timed out: {e}")
-            print("Page loaded successfully.")
+                logger.warning(f"Network idle state timed out: {e}")
+            logger.info("Page loaded successfully.")
 
             # Scroll to bottom
             await scroll_to_bottom(page)
             await page.wait_for_timeout(5000)
-            print("Scrolled to the bottom.")
+            logger.info("Scrolled to the bottom.")
 
             # Get the page content
             content = await page.content()
         except Exception as e:
-            print(f"Failed to load page: {e}")
+            logger.error(f"Failed to load page: {e}")
             raise
 
-        print("Browser closed.")
+        await browser.close()
+        logger.info("Browser closed.")
+
         return content
 
 async def main(event):
-    # Extract parameters from the event payload
-    url = event.get('url')
-    bucket_name = event.get('bucket')
-    output_key = event.get('output_key')
-    
-    if not url:
-        raise ValueError('Error: Missing required parameter (url).')
-
-    # Run the async function to download and process the content
-    content = await download_page_content(url)
-
-    # Upload the content to S3
+    """
+    Main lambda function that runs all scrapers
+    """
     try:
-        print("### Uploading content to S3...")
-        print("Content type: ", type(content))
-        print("Bucket name: ", bucket_name)
-        print("Output key: ", output_key)
-
-        s3_client = boto3.client('s3')
-        s3_client.put_object(
-            Bucket=bucket_name, 
-            Key=output_key, 
-            Body=content, 
-            ContentType='text/html; charset=utf-8'
-        )
+        logger.info("Starting scraper lambda function")
+        
+        # Run all scrapers
+        logger.info("Running all scrapers...")
+        results = run_all_scrapers(max_workers=1)  # Single worker to avoid disk space issues
+        
+        # Calculate total reports
+        total_reports = sum(len(reports) for reports in results.values())
+        successful_scrapers = sum(1 for reports in results.values() if len(reports) > 0)
+        
+        logger.info(f"Scraping completed. Total reports: {total_reports} from {successful_scrapers} scrapers")
+        
+        # Log total count of new reports and database operations
+        if total_reports > 0:
+            logger.info(f"TOTAL NEW REPORTS SCRAPED: {total_reports} reports have been successfully scraped and added to the database")
+            logger.info(f"TOTAL DATABASE WRITES SUCCESSFUL: {total_reports} reports have been successfully written to the database")
+        else:
+            logger.info("NO NEW REPORTS SCRAPED: No new reports have been scraped from any source")
+            logger.info("NO DATABASE WRITES: No reports were written to the database")
+        
+        # Prepare response
+        response = {
+            'statusCode': 200,
+            'message': f'Successfully scraped {total_reports} reports from {successful_scrapers} scrapers',
+            'total_reports': total_reports,
+            'successful_scrapers': successful_scrapers,
+            'total_scrapers': len(results),
+            'database_writes': total_reports,  # Assuming all scraped reports were written to database
+            'scraper_results': {}
+        }
+        
+        # Add summary for each scraper
+        for scraper_name, reports in results.items():
+            response['scraper_results'][scraper_name] = {
+                'report_count': len(reports),
+                'status': 'success' if len(reports) > 0 else 'no_reports'
+            }
+        
+        # If S3 upload is requested in event
+        if event.get('upload_to_s3'):
+            bucket_name = event.get('bucket', 'testudo-scraped-reports')
+            output_key = event.get('output_key', f'scraper-results-{int(time.time())}.json')
+            
+            try:
+                logger.info("Uploading results to S3...")
+                s3_client = boto3.client('s3')
+                
+                # Convert results to JSON string
+                results_json = json.dumps(results, default=str, indent=2)
+                
+                s3_client.put_object(
+                    Bucket=bucket_name, 
+                    Key=output_key, 
+                    Body=results_json, 
+                    ContentType='application/json'
+                )
+                
+                response['s3_upload'] = {
+                    'bucket': bucket_name,
+                    'key': output_key,
+                    'status': 'success'
+                }
+                logger.info(f"Results uploaded to S3: s3://{bucket_name}/{output_key}")
+                
+            except Exception as e:
+                logger.error(f"Error uploading to S3: {e}")
+                response['s3_upload'] = {
+                    'status': 'failed',
+                    'error': str(e)
+                }
+        
+        return response
+        
     except Exception as e:
-        print(f"Error uploading to S3: {e}")
-        raise
-
-    print('Source code uploaded successfully')
-    return {
-        'statusCode': 200,
-        'message': 'Source code uploaded successfully',
-        'bucket_name': bucket_name,
-        'source_code_key': output_key
-    }
+        logger.error(f"Error in lambda function: {str(e)}")
+        return {
+            'statusCode': 500,
+            'message': f'Error running scrapers: {str(e)}',
+            'error': str(e)
+        }
 
 def handler(event, context):
+    """
+    AWS Lambda handler function
+    """
     return asyncio.run(main(event))

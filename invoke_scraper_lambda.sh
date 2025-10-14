@@ -2,22 +2,13 @@
 
 # Variables
 FUNCTION_NAME="lambda_playwright_scrapers"
-S3_BUCKET="scrapers-scheduler-storage"  # Replace with your bucket name
-OUTPUT_KEY="test_scraped_page.html"
 
-# Get URL from command line argument or use default
-URL="${1:-https://www.gov.uk/new-state-pension}"
+echo "Invoking Scraper Lambda function..."
 
-echo "Invoking Lambda function..."
-echo "URL: $URL"
-echo "Output will be saved to: s3://${S3_BUCKET}/${OUTPUT_KEY}"
-
-# Create the payload with formatted JSON
+# Create the payload for scraper testing
 PAYLOAD=$(cat << EOF
 {
-    "url": "${URL}",
-    "bucket": "${S3_BUCKET}",
-    "output_key": "${OUTPUT_KEY}"
+    "upload_to_s3": false
 }
 EOF
 )
@@ -38,3 +29,6 @@ else
     echo "Error invoking Lambda function"
     exit 1
 fi
+
+
+

@@ -2,11 +2,11 @@
 
 # Set variables
 ECR_REGION="us-east-1"
-ECR_ACCOUNT_ID="YOUR_ACCOUNT_NUMBER"
-ECR_REPOSITORY_NAME="container-playwright"
+ECR_ACCOUNT_ID="586794456422"
+ECR_REPOSITORY_NAME="lambda-scraper-scheduler"
 IMAGE_TAG="latest"
 IMAGE_URI="$ECR_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$IMAGE_TAG"
-LAMBDA_FUNCTION_NAME="lambda_playwright_generic"
+LAMBDA_FUNCTION_NAME="lambda_playwright_scrapers"
 LAMBDA_ROLE_ARN="arn:aws:iam::$ECR_ACCOUNT_ID:role/LambdaPlaywrightRole"
 
 cd container

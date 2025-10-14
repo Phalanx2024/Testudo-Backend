@@ -1,0 +1,1 @@
+{"statusCode": 200, "message": "Successfully scraped 32 reports from 3 scrapers", "total_reports": 32, "successful_scrapers": 3, "total_scrapers": 3, "scraper_results": {"Hindenburg Research": {"report_count": 10, "status": "success"}, "Viceroy Research": {"report_count": 10, "status": "success"}, "Kerrisdale Capital": {"report_count": 12, "status": "success"}}}
